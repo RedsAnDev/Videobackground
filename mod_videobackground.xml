@@ -18,13 +18,15 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field
-					name="autoplay"
-					type="text"
-					default="false"
-					label="Autoplay"
-					description="Autoplay video at download">
-				</field>
+				<field name="autoplay" type="checkbox" label="Autoplay" description="Show the title of the item" value="1" default="0" />
+        <field name="show_maintitle" type="checkbox" label="Show Main Title" description="Show the title of the item" value="1" default="0" />
+        <field name="maintitle" type="text" label="Main Title" description="A main title to desribe what's you offer consist" />
+        <field name="show_subtitle" type="checkbox" label="Show Subtitle" description="Show the title of the item" value="1" default="0" />
+        <field name="subtitle" type="text" label="Main Title" description="A main title to desribe what's you offer consist" />
+        <field name="show_description" type="checkbox" label="Show Description" description="Show the title of the item" value="1" default="0" />
+        <field name="description" type="editor" filter="safehtml"/>
+        <field name="image" type="media" directory="" />
+        <field name="video" type="media" directory="" />
 			</fieldset>
 		</fields>
 	</config>

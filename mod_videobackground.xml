@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension
+	type="module"
+	version="3.4.8"
+	client="site"
+	method="upgrade">
+	<name>mod_videobackground</name>
+	<author>RAD</author>
+	<creationDate>March 2016</creationDate>
+	<copyright>Nothing</copyright>
+	<version>3.4.8</version>
+	<files>
+		<filename module="mod_videobackground">mod_videobackground.php</filename>
+		<filename>index.html</filename>
+		<folder>tmpl</folder>
+		<folder>language</folder>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="autoplay"
+					type="text"
+					default="false"
+					label="Autoplay"
+					description="Autoplay video at download">
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

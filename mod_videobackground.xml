@@ -19,6 +19,8 @@
 		<fields name="params">
 			<fieldset name="basic">
 				<field name="autoplay" type="checkbox" label="Autoplay" description="Show the title of the item" value="1" default="0" />
+				<field name="muted" type="checkbox" label="Muted" description="Show the title of the item" value="1" default="0" />
+				<field name="loop" type="checkbox" label="Loop" description="Show the title of the item" value="1" default="0" />
         <field name="show_maintitle" type="checkbox" label="Show Main Title" description="Show the title of the item" value="1" default="0" />
         <field name="maintitle" type="text" label="Main Title" description="A main title to desribe what's you offer consist" />
         <field name="show_subtitle" type="checkbox" label="Show Subtitle" description="Show the title of the item" value="1" default="0" />
@@ -26,7 +28,18 @@
         <field name="show_description" type="checkbox" label="Show Description" description="Show the title of the item" value="1" default="0" />
         <field name="description" type="editor" filter="safehtml"/>
         <field name="image" type="media" directory="" />
+				<field name="stream"
+					type="radio"
+					class="btn-group"
+					default="0"
+					label="Stream"
+					description="Make a choice and take your stream"
+				>
+					<option value="1">Local</option>
+					<option value="0">Youtube</option>
+				</field>
         <field name="video" type="media" directory="" />
+				<field name="youtube" type="text" label="Youtube" description="Insert singleton" default="K9XCKP9KN7A" />
 			</fieldset>
 		</fields>
 	</config>

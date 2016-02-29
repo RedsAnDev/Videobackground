@@ -34,11 +34,27 @@ $moduleclass_sfx = htmlspecialchars($params->get("moduleclass_sfx"));
     </script>
 <?php else:?>
   <iframe id="ytplayer" class="video" type="text/html" width="100%" height="100vh"
-  src="https://www.youtube.com/embed/<?php echo $params->get('youtube');?>?&controls=0&showinfo=0&rel=1&playlist=<?php
+  src="https://www.youtube.com/embed/<?php echo $params->get('youtube');?>?&controls=0&showinfo=0&rel=1&enablejsapi=1&playlist=<?php
     echo $params->get('youtube');
     echo (!$params->get("autoplay")) ? "&autoplay=0" : "&autoplay=1";
     echo ($params->get("loop")) ? "&loop=1" : "";?>&origin=<?php echo $baseurl;?>"
   frameborder="0"></iframe>
+  <script type="javascript">
+  var player;
+
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('ytplayer', {
+        events: {
+            'onReady': onPlayerReady
+        }
+    });
+}
+
+function onPlayerReady(event) {
+    player.mute();
+    player.playVideo();
+}
+  </script>
 <?php endif;?>
 <?php
 // Richiama il layout selezionato per questo modulo

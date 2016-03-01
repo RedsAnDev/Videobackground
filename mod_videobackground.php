@@ -1,6 +1,9 @@
 
 <?php defined('_JEXEC') or die;
-
+//jimport('joomla.environment.browser');
+//$browser=&JBrowser::getInstance();
+//$browser = ($params->get("safeMobile"))? $browser->isMobile() : false;
+//echo ($browser) ? "YES ".$browser : "NO ".$browser;
 $moduleclass_sfx = htmlspecialchars($params->get("moduleclass_sfx"));
 // Interroga G+ e valorizza la variabile $posts per una successiva visualizzazione
 ?>
@@ -33,28 +36,56 @@ $moduleclass_sfx = htmlspecialchars($params->get("moduleclass_sfx"));
     });
     </script>
 <?php else:?>
-  <iframe id="ytplayer" class="video" type="text/html" width="100%" height="100vh"
+  <?php /*<iframe id="ytplayer" class="video" type="text/html" width="100%" height="100vh"
   src="https://www.youtube.com/embed/<?php echo $params->get('youtube');?>?&controls=0&showinfo=0&rel=1&enablejsapi=1&playlist=<?php
     echo $params->get('youtube');
     echo (!$params->get("autoplay")) ? "&autoplay=0" : "&autoplay=1";
+    echo ($params->get("muted")) ? "&mute=0" : "";
     echo ($params->get("loop")) ? "&loop=1" : "";?>&origin=<?php echo $baseurl;?>"
   frameborder="0"></iframe>
-  <script type="javascript">
-  var player;
+*/?>
+  <div id="player"></div>
 
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('ytplayer', {
-        events: {
-            'onReady': onPlayerReady
+    <script>
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: window.innerHeight,
+          width: window.innerWidth,
+          playerVars: {
+            'controls':0,'showinfo':0,'rel':1,
+            'autoplay':<?php echo (!$params->get("autoplay")) ? "0" : "1";?>,
+            'loop':<?php echo ($params->get("loop")) ? "1" : "0";?>},
+          videoId: '<?php echo $params->get('youtube');?>',
+          events: {
+            'onReady': onPlayerReady,
+          }
+        });
+      }
+      function onPlayerReady(event) {
+        event.target.setVolume(0)
+        event.target.playVideo();
+      }
+      var play = true;
+      function buttonPlayPause() {
+        if(play){
+          player.pauseVideo();
         }
-    });
-}
-
-function onPlayerReady(event) {
-    player.mute();
-    player.playVideo();
-}
-  </script>
+        if(!play){
+          player.playVideo();
+        }
+        play=!play;
+      }
+    </script>
 <?php endif;?>
 <?php
 // Richiama il layout selezionato per questo modulo

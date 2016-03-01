@@ -18,6 +18,7 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
+				<field name="safeMobile" type="checkbox" label="safe Mobile Navigation" description="Use only background image for mobile navigation" value="1" default="0" />
 				<field name="autoplay" type="checkbox" label="Autoplay" description="Show the title of the item" value="1" default="0" />
 				<field name="muted" type="checkbox" label="Muted" description="Show the title of the item" value="1" default="0" />
 				<field name="loop" type="checkbox" label="Loop" description="Show the title of the item" value="1" default="0" />

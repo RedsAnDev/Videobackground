@@ -1,4 +1,4 @@
-# mod_videobackground
+# VideoBackground
 A simple way to show your video by module.
 
 ##Features

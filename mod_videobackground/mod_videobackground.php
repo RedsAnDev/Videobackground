@@ -98,6 +98,11 @@ require JModuleHelper::getLayoutPath("mod_videobackground", $params->get('layout
     position: relative;
     min-height: 400px;
   }
+  .video-background, .video-background *{
+    margin:0px;
+    padding:0px;
+    border:none;
+  }
   .video,iframe.video, iframe.video iframe{
     width: 100%;
     height: 100vh;

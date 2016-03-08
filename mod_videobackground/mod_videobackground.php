@@ -16,9 +16,6 @@ $moduleclass_sfx = htmlspecialchars($params->get("moduleclass_sfx"));
     <?php echo ($params->get("loop")) ? "loop" : "";?>
      >
     </video>
-    <div class="controller">
-      <a href="#" class="cta-button" data-target="video.video">Test</a>
-    </div>
     <script type="javascript">
     jQuery(document).ready(function($) {
         $('.cta-button').add('video.video').click(function() {
@@ -63,8 +60,8 @@ $moduleclass_sfx = htmlspecialchars($params->get("moduleclass_sfx"));
           width: window.innerWidth,
           playerVars: {
             'controls':0,'showinfo':0,'rel':1,
-            'autoplay':<?php echo (!$params->get("autoplay")) ? "0" : "1";?>,
-            'loop':<?php echo ($params->get("loop")) ? "1" : "0";?>},
+            'autoplay':<?php echo $params->get("autoplay");?>,
+            'loop':<?php echo $params->get("loop");?>},
           videoId: '<?php echo $params->get('youtube');?>',
           events: {
             'onReady': onPlayerReady,
@@ -91,6 +88,9 @@ $moduleclass_sfx = htmlspecialchars($params->get("moduleclass_sfx"));
 // Richiama il layout selezionato per questo modulo
 require JModuleHelper::getLayoutPath("mod_videobackground", $params->get('layout', 'default'));
 ?>
+<div class="controller">
+  <a href="#" class="cta-button" data-target="video.video">Test</a>
+</div>
 </div>
 <style>
   .video-background{

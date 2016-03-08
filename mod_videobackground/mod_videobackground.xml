@@ -6,6 +6,7 @@
 	method="upgrade">
 	<name>mod_videobackground</name>
 	<author>RAD</author>
+	<email>code@redsandev.com</email>
 	<creationDate>March 2016</creationDate>
 	<copyright>Nothing</copyright>
 	<version>3.4.8</version>
@@ -18,29 +19,50 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field name="safeMobile" type="checkbox" label="safe Mobile Navigation" description="Use only background image for mobile navigation" value="1" default="0" />
-				<field name="autoplay" type="checkbox" label="Autoplay" description="Show the title of the item" value="1" default="0" />
-				<field name="muted" type="checkbox" label="Muted" description="Show the title of the item" value="1" default="0" />
-				<field name="loop" type="checkbox" label="Loop" description="Show the title of the item" value="1" default="0" />
-        <field name="show_maintitle" type="checkbox" label="Show Main Title" description="Show the title of the item" value="1" default="0" />
-        <field name="maintitle" type="text" label="Main Title" description="A main title to desribe what's you offer consist" />
-        <field name="show_subtitle" type="checkbox" label="Show Subtitle" description="Show the title of the item" value="1" default="0" />
-        <field name="subtitle" type="text" label="Main Title" description="A main title to desribe what's you offer consist" />
-        <field name="show_description" type="checkbox" label="Show Description" description="Show the title of the item" value="1" default="0" />
-        <field name="description" type="editor" filter="safehtml"/>
+				<field name="safeMobile" type="radio" class="btn-group" default="0" label="MOD_VIDEOBACKGROUND_LABEL_SAFEMOBILE" description="MOD_VIDEOBACKGROUND_DESC_SAFEMOBILE">
+						<option value="1">JYES</option>
+						<option value="0">JNO</option>
+				</field>
+				<field name="autoplay" type="radio" class="btn-group" default="0" label="MOD_VIDEOBACKGROUND_LABEL_AUTOPLAY" description="MOD_VIDEOBACKGROUND_DESC_AUTOPLAY">
+					<option value="0">JYES</option>
+					<option value="1">JNO</option>
+				</field>
+				<field name="muted" type="radio" class="btn-group" default="0" label="MOD_VIDEOBACKGROUND_LABEL_MUTED" description="MOD_VIDEOBACKGROUND_DESC_MUTED">
+					<option value="0">JYES</option>
+					<option value="1">JNO</option>
+				</field>
+				<field name="loop" type="radio" class="btn-group" default="0" label="MOD_VIDEOBACKGROUND_LABEL_LOOP" description="MOD_VIDEOBACKGROUND_DESC_LOOP">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+        <field name="show_maintitle" type="radio" class="btn-group" default="0" label="MOD_VIDEOBACKGROUND_LABEL_SHOWMAINTITLE" description="MOD_VIDEOBACKGROUND_DESC_SHOWMAINTITLE">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+        <field name="maintitle" type="text" label="MOD_VIDEOBACKGROUND_LABEL_MAINTITLE" description="MOD_VIDEOBACKGROUND_DESC_MAINTITLE" />
+        <field name="show_subtitle" type="radio" class="btn-group" default="0" label="MOD_VIDEOBACKGROUND_LABEL_SHOWSUBTITLE" description="MOD_VIDEOBACKGROUND_DESC_SHOWSUBTITLE">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+        <field name="subtitle" type="text" label="MOD_VIDEOBACKGROUND_LABEL_SUBTITLE" description="MOD_VIDEOBACKGROUND_DESC_SUBTITLE" />
+        <field name="show_description" type="radio" class="btn-group" default="0" label="MOD_VIDEOBACKGROUND_LABEL_SHOWDESCRIPTION" description="MOD_VIDEOBACKGROUND_DESC_SHOWDESCRIPTION">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
         <field name="image" type="media" directory="" />
 				<field name="stream"
 					type="radio"
 					class="btn-group"
 					default="0"
-					label="Stream"
-					description="Make a choice and take your stream"
+					label="MOD_VIDEOBACKGROUND_LABEL_STREAM"
+					description="MOD_VIDEOBACKGROUND_DESC_STREAM"
 				>
 					<option value="1">Local</option>
 					<option value="0">Youtube</option>
 				</field>
-        <field name="video" type="media" directory="" />
-				<field name="youtube" type="text" label="Youtube" description="Insert singleton" default="K9XCKP9KN7A" />
+        <field name="video" type="media" label="MOD_VIDEOBACKGROUND_LABEL_URLVIDEO" description="MOD_VIDEOBACKGROUND_DESC_URLVIDEO" directory="" />
+				<field name="youtube" type="text" label="MOD_VIDEOBACKGROUND_LABEL_YOUTUBE" description="MOD_VIDEOBACKGROUND_DESC_YOUTUBE" default="K9XCKP9KN7A" />
+        <field name="descritption" type="editor" filter="safehtml"/>
 			</fieldset>
 		</fields>
 	</config>

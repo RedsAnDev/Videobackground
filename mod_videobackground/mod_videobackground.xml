@@ -23,6 +23,10 @@
 						<option value="1">JYES</option>
 						<option value="0">JNO</option>
 				</field>
+					<field name="videoDisable" type="radio" class="btn-group" default="0" label="MOD_VIDEOBACKGROUND_LABEL_VIDEODISABLE" description="MOD_VIDEOBACKGROUND_DESC_VIDEODISABLE">
+							<option value="0">JYES</option>
+							<option value="1">JNO</option>
+					</field>
 				<field name="autoplay" type="radio" class="btn-group" default="0" label="MOD_VIDEOBACKGROUND_LABEL_AUTOPLAY" description="MOD_VIDEOBACKGROUND_DESC_AUTOPLAY">
 					<option value="0">JYES</option>
 					<option value="1">JNO</option>
